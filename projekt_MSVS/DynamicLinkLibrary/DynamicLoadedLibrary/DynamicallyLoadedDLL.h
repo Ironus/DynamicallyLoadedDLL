@@ -8,5 +8,8 @@
 #include <string>
 
 namespace DynamicallyLoaded {
-	extern "C" DYNAMICALLYLOADEDDLL_API unsigned int stringLength(std::string _string);
+	#ifdef __cplusplus
+	extern "C" 
+	#endif
+		DYNAMICALLYLOADEDDLL_API unsigned int stringLength(std::string _string);
 }

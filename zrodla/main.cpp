@@ -2,10 +2,10 @@
 #include <string>
 #include <windows.h>
 
-// definicja wskaznika do funkcji zwracajacej dlugosc stringa
-typedef unsigned int (*stringLength) (std::string);
-
 int main(int argc, char* argv[]) {
+	// definicja prototypu wskaznika do funkcji zwracajacej dlugosc stringa
+	typedef unsigned int(*stringLength) (std::string);
+
 	/*
 		pathToDll - sciezka do biblioteki
 		receivedString - string pobierany ze standardowego wejscia
@@ -41,6 +41,7 @@ int main(int argc, char* argv[]) {
 
 		// zwolnij biblioteke
 		FreeLibrary(dllHandle);
+		dllHandle = NULL;
 	} else { // jesli blad - wyswietl komunikat
 		std::cout << "Nie udalo sie zaladowac biblioteki." << std::endl;
 	}
